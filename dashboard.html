@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Samartex Hospital - Admin Dashboard</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f5;
+    }
+
+    header {
+      background: #00804b;
+      color: white;
+
+      padding: 18px 25px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logout {
+      background: white;
+      color: #00804b;
+
+      border: none;
+      padding: 10px 18px;
+
+      border-radius: 6px;
+      cursor: pointer;
+
+      font-weight: bold;
+    }
+
+    main {
+      padding: 25px;
+    }
+
+    .welcome {
+      margin-bottom: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      color: #00804b;
+      margin-bottom: 15px;
+    }
+
+    .number {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <h2>Samartex Hospital</h2>
+
+    <button class="logout" onclick="logout()">
+      Logout
+    </button>
+
+  </header>
+
+  <main>
+
+    <div class="welcome">
+      <h1>Admin Dashboard</h1>
+      <p>Welcome, Administrator</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Patients</h3>
+        <div class="number">0</div>
+      </div>
+
+      <div class="card">
+        <h3>Doctors</h3>
+        <div class="number">0</div>
+      </div>
+
+      <div class="card">
+        <h3>Appointments</h3>
+        <div class="number">0</div>
+      </div>
+
+      <div class="card">
+        <h3>Pharmacy</h3>
+        <div class="number">0</div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+
+    // Prevent access without login
+    if (sessionStorage.getItem("adminLoggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    function logout() {
+
+      sessionStorage.removeItem("adminLoggedIn");
+
+      window.location.href = "index.html";
+    }
+
+  </script>
+
+</body>
+
+</html>
